@@ -1,0 +1,31 @@
+//Consultas
+//Mostrar los servicios incluidos y no incluidos de un anuncio
+db.anuncio.aggregate([
+    {$lookup:{from: "servicio", localField: "servicios_incluidos", foreignField: "id_servicio", as: "Servicios_incluidos"}},
+    {$lookup:{from: "servicio", localField: "servicios_no_incluidos", foreignField: "id_servicio", as: "Servicios_no_incluidos"}},
+    {$project:{id_anuncio: 1, precio: 1, "Servicios_no_incluidos.nombre": 1, "Servicios_no_incluidos.descripcion": 1,
+    "Servicios_no_incluidos.tipo": 1, "Servicios_incluidos.nombre": 1, "Servicios_incluidos.descripcion": 1, "Servicios_incluidos.tipo": 1}}]).pretty();
+//Mostrar al anfitrión de cada anuncio
+db.anuncio.aggregate([
+    {$lookup:{from: "usuario", localField: "id_anfitrion", foreignField: "id_usuario", as: "Anfitrión"}},
+    {$project:{id_anuncio: 1, precio: 1, "Anfitrión.telefono":1, "Anfitrión.nombre": 1, "Anfitrión.tipo": 1, "Anfitrión.ubicacion": 1}}
+    ]).pretty();
+//Mostrar los anuncios de un anfitrión
+db.usuario.aggregate([
+    {$project: {anuncios: 1, id_usuario: 1, nombre: 1, telefono: 1 , numero_anuncios:{$size:"$anuncios"}}},
+    {$match: {numero_anuncios:{$gt:0}}},
+    {$lookup: {from: "anuncio", localField: "anuncios", foreignField: "id_anuncio", as: "Anuncios"}},
+    {$project: {anuncios: 1, id_usuario: 1, nombre: 1, telefono: 1, 
+    "Anuncios.id_anuncio": 1,"Anuncios.precio": 1, "Anuncios.ubicacion": 1, "Anuncios.tipo_alojamiento": 1, "Anuncios.nro_huespedes": 1}}
+    ]).pretty();
+//Mostrar los evaluadores de un anuncio
+db.anuncio.aggregate([
+    {$match: {nro_evaluaciones: {$gt: 0}}},
+    {$lookup: {from: "usuario", localField: "evaluaciones.id_evaluador", foreignField: "id_usuario", as: "Evaluadores"}},
+    {$project: {id_anuncio: 1, precio: 1, "evaluaciones.id_evaluador": 1,"evaluaciones.fecha": 1,"Evaluadores.id_usuario": 1, "Evaluadores.nombre": 1, "Evaluadores.tipo": 1}}]).pretty();
+//Mostrar los evaluadores de un usuario
+db.usuario.aggregate([
+    {$match: {nro_evaluaciones: {$gt: 0}}},
+    {$lookup: {from: "usuario", localField: "evaluaciones.id_evaluador", foreignField: "id_usuario", as: "Evaluadores"}},
+    {$project: {id_usuario: 1, nombre: 1, tipo: 1, "evaluaciones.id_evaluador": 1,"evaluaciones.fecha": 1, "Evaluadores.id_usuario": 1, "Evaluadores.nombre": 1, "Evaluadores.tipo": 1}}
+    ]).pretty();

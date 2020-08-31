@@ -1,0 +1,333 @@
+db.servicio.deleteMany({});
+db.anuncio.deleteMany({});
+db.usuario.deleteMany({});
+db.servicio.insertMany([
+    {
+        id_servicio: 1,
+        nombre: "Wifi",
+        descripcion: "Accesible a toda hora",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 2,
+        nombre: "Secadora",
+        descripcion: "Gratuita o de pago, en el mismo edificio",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 3,
+        nombre: "Lavadora",
+        descripcion: "Gratuita o de pago, en el mismo edificio",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 4,
+        nombre: "Plancha",
+        descripcion: "",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 5,
+        nombre: "TV",
+        descripcion: "",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 6,
+        nombre: "Elementos básicos",
+        descripcion: "Toallas, sábanas, jabón y papel higiénico",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 7,
+        nombre: "Agua caliente",
+        descripcion: "",
+        tipo: "Básico"
+    },
+    {
+        id_servicio: 8,
+        nombre: "Ascensor",
+        descripcion: "El alojamiento o el edificio cuenta con un elevador con al menos 132 cm de profundidad y un acceso de 81 cm de ancho",
+        tipo: "Instalaciones"
+    },
+    {
+        id_servicio: 9,
+        nombre: "Estacionamiento gratuito en las instalaciones",
+        descripcion: "",
+        tipo: "Instalaciones"
+    },
+    {
+        id_servicio: 10,
+        nombre: "Gimnasio",
+        descripcion: "Gratuito, en el edificio o los alrededores",
+        tipo: "Instalaciones"
+    },
+    {
+        id_servicio: 11,
+        nombre: "Alberca",
+        descripcion: "Privada o compartida",
+        tipo: "Instalaciones"
+    },
+    {
+        id_servicio: 12,
+        nombre: "Cocina",
+        descripcion: "Cocina disponible para el uso de os huéspedes",
+        tipo: "Lugares para cenar"
+    },
+    {
+        id_servicio: 13,
+        nombre: "Microondas",
+        descripcion: "",
+        tipo: "Lugares para cenar"
+    },
+    {
+        id_servicio: 14,
+        nombre: "Estufa",
+        descripcion: "",
+        tipo: "Lugares para cenar"
+    },
+    {
+        id_servicio: 15,
+        nombre: "Elementos básicos para cocinar",
+        descripcion: "Ollas y sartenes, aceite, sal y pimienta",
+        tipo: "Lugares para cenar"
+    },
+    {
+        id_servicio: 16,
+        nombre: "Horno",
+        descripcion: "",
+        tipo: "Lugares para cenar"
+    },
+    {
+        id_servicio: 17,
+        nombre: "Platos y cubiertos",
+        descripcion: "",
+        tipo: "Lugares para cenar"
+    },
+    {
+        id_servicio: 18,
+        nombre: "Secador de pelo",
+        descripcion: "",
+        tipo: "Cama y baño"
+    },
+    {
+        id_servicio: 19,
+        nombre: "Ganchos para ropa",
+        descripcion: "",
+        tipo: "Cama y baño"
+    }
+    ]);
+
+db.usuario.insertMany([
+    {
+        id_usuario: 1,
+        nombre: "Jo",
+        nro_evaluaciones: 1,
+        telefono: "",
+        correos: [],
+        anuncios: [],
+        evaluaciones:[
+            {
+                id_orden: 1,
+                id_evaluador: 5,
+                texto: "Jo es una excelente huésped. Comunicativa y puntual según lo acordado, respetó todas las normas de la casa y dejó tel apartamento muy limpio y ordenado. Sin duda recomiendo hospedar a Jo a toda la comunidad anfitriona de Airbnb.",
+                fecha: new Date("2020-08-30T01:47:06.725Z"),
+            }
+            ],
+        tipo: "Usuario",
+        ubicacion: "Buenos Aires, Argentina"
+    },
+    {
+        id_usuario: 2,
+        nombre: "Agus",
+        nro_evaluaciones: 1,
+        telefono: "",
+        correos: [],
+        anuncios: [],
+        evaluaciones:[
+            {
+                id_orden:1,
+                id_evaluador: 5,
+                texto: "Agustina y su familia son excelentes huéspedes. Comunicativa y puntual en el check in y check out. Han cuidado y dejado el apartamento muy limpio y ordenado. Huéspedes súper recomendables!",
+                fecha: new Date("2020-08-14T01:47:06.725Z")
+            }
+            ],
+        tipo: "Usuario",
+        ubicacion: "Trenque Lauquen, Argentina"
+    },
+    {
+        id_usuario: 3,
+        nombre: "Néstor",
+        nro_evaluaciones: 2,
+        telefono: "",
+        correos: [],
+        anuncios: [],
+        evaluaciones:[
+            {
+                id_orden: 1,
+                id_evaluador: 5,
+                texto: "Néstor fue un muy buen huésped. Respetó las normas de la casa y dejó el departamento en excelente condiciones.",
+                fecha: new Date("2020-08-14T01:47:06.725Z")
+            },
+            {
+                id_orden: 2,
+                id_evaluador: 1,
+                texto: "huésped agradable, muy limpio y tranquilo: Muy recomendable",
+                fecha: new Date("2020-08-14T01:47:06.725Z")
+            },
+            ],
+        tipo: "Usuario",
+        ubicacion: "Buenos Aires, Argentina"
+    },
+    {
+        id_usuario: 4,
+        nombre: "Edgar",
+        nro_evaluaciones: 0,
+        telefono: "999029213",
+        correos: ["eachuy_emch@hotmail.com","edgarachuy@gmail.com"],
+        anuncios: [1,2],
+        evaluaciones:[],
+        tipo: "SuperAnfitrión",
+        ubicacion: "Lima, Perú"
+    },
+    {
+        id_usuario: 5,
+        nombre: "Marcelo",
+        nro_evaluaciones: 3,
+        telefono: "",
+        correos: [],
+        anuncios: [5,6],
+        evaluaciones:[
+            {
+                id_orden: 1,
+                id_evaluador: 1,
+                texto: "Excelente ubicación, limpieza, servicios, atención por parte de Edgar además de todo nos apoyó en la situación de cierre de fronteras excelente ser humano.",
+                fecha: new Date("2020-08-16T01:47:06.725Z")
+            },
+            {
+                id_orden: 2,
+                id_evaluador: 2,
+                texto: "Excelente ubicación, lugar tranquilo y limpio",
+                fecha: new Date("2020-08-17T01:47:06.725Z")
+            },
+            {
+                id_orden: 3,
+                id_evaluador: 3,
+                texto: "Me encantó estar aquí se me brindaron todas las atenciones que deseaba lo recomiendo y además volveré a tomarlo cada que regrese",
+                fecha: new Date("2020-08-18T01:47:06.725Z")
+            },
+            ],
+        tipo: "SuperAnfitrión"
+    },
+    {
+        id_usuario: 6,
+        nombre: "Patricia",
+        nro_evaluaciones: 0,
+        telefono: "",
+        correos: [],
+        anuncios: [3,4],
+        evaluaciones:[],
+        tipo: "SuperAnfitrión"
+    }
+    ]);
+
+db.anuncio.insertMany([
+    {
+        id_anuncio: 1,
+        id_anfitrion: 4,
+        nro_evaluaciones: 2,
+        evaluaciones:[
+            {
+                id_orden: 1,
+                id_evaluador: 2,
+                texto: "Excelente lugar lo recomiendo ampliamente",
+                fecha: new Date("2020-08-18T01:47:06.725Z")
+            },
+            {
+                id_orden: 2,
+                id_evaluador: 3,
+                texto: "100% recomendable, muy buena",
+                fecha: new Date("2020-08-18T01:47:06.725Z")
+            }
+            ],
+        servicios_incluidos: [1,2,3,4,10,11,12,13,14,15,16],
+        servicios_no_incluidos: [7,6,5],
+        precio: 50,
+        ubicacion: "Cercado de Lima, Municipalidad Metropolitana de Lima, Perú",
+        tipo_alojamiento: "Habitación privada",
+        nro_huespedes: 1,
+        descripcion: "Linda, cómoda e impecable habitación privada, con cama queenside, TV LED 45¨armario empotrado de pared a pared y baño incorporado con ducha española, dentro de moderno departamento totalmente renovado, ubicado en el cuarto piso de un edificio de 5."
+    },
+    {
+        id_anuncio: 2,
+        id_anfitrion: 4,
+        nro_evaluaciones: 1,
+        evaluaciones:[
+            {
+                id_orden: 1,
+                id_evaluador: 1,
+                texto: "Excelente alojamineto, bien ubicado, comodo",
+                fecha: new Date("2020-08-18T01:47:06.725Z")
+            },
+            ],
+        servicios_incluidos: [17,18,19,10,11,12,13,14,15,16],
+        servicios_no_incluidos: [1,7,6,2,3,5],
+        precio: 59,
+        ubicacion: "Pueblo Libre, Municipalidad Metropolitana de Lima, Perú",
+        tipo_alojamiento: "Departamento entero ",
+        nro_huespedes: 2,
+        descripcion: "El piso está situado en el histórico distrito de Pueblo Libre, rodeado de lugares históricos conjugados con modernidad . Cuanta con vías de transporte publico casi a toda lima que conecta a 15 minutos con las ramblas y del mar, 25 minutos de plaza mayor, 20 minutos de centro de lima."
+    },
+    {
+        id_anuncio: 3,
+        id_anfitrion: 6,
+        nro_evaluaciones: 0,
+        evaluaciones:[],
+        servicios_incluidos: [1,2,3,4,5,6,7,8,9,11,12,13,14,15,16],
+        servicios_no_incluidos: [18,19],
+        precio: 101,
+        ubicacion: "Lima, Municipalidad Metropolitana de Lima, Perú",
+        tipo_alojamiento: "Departamento entero ",
+        nro_huespedes: 2,
+        descripcion: "Impecable departamento de estreno ubicado en el 4to piso de un edificio de 5 (solo 11 departamentos) listo para dar la bienvenida a todos los que deseen pasar una agradable y tranquila estadía en la ciudad, excelente ubicación" 
+    },
+    {
+        id_anuncio: 4,
+        id_anfitrion: 6,
+        nro_evaluaciones: 0,
+        evaluaciones:[],
+        servicios_incluidos: [4,5,6,7,8,13,14,15,16],
+        servicios_no_incluidos: [18,19],
+        precio: 40,
+        ubicacion: "Cercado de Lima, Municipalidad Metropolitana de Lima, Perú",
+        tipo_alojamiento: "Habitación privada en departamento",
+        nro_huespedes: 1,
+        descripcion: "Cómoda, iluminada e impecable habitación privada, con cama doble, TV LED 45¨armario empotrado de pared a pared con baño compartido, dentro de moderno departamento totalmente renovado, ubicado en el cuarto piso de un edificio de 5."
+    },
+    {
+        id_anuncio: 5,
+        id_anfitrion: 5,
+        nro_evaluaciones: 0,
+        evaluaciones:[],
+        servicios_incluidos: [4,5,6,7,8,13,14,15,16],
+        servicios_no_incluidos: [18,19],
+        precio: 64,
+        ubicacion: "Buenos Aires, Argentina",
+        tipo_alojamiento: "Departamento entero",
+        nro_huespedes: 4,
+        descripcion: "Belgrano Premium Apartment es un encantador apartamento , renovado y reciclado a nuevo, en el corazón de Belgrano, zona de cafés, restaurantes y comercios. A una cuadra de la Universidad de Belgrano y a dos cuadras del subte línea D que conecta a cualquier punto de la ciudad. " 
+    },
+    {
+        id_anuncio: 6,
+        id_anfitrion: 5,
+        nro_evaluaciones: 0,
+        evaluaciones:[],
+        servicios_incluidos: [1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18],
+        servicios_no_incluidos: [19],
+        precio: 142,
+        ubicacion: "Cercado de Lima, Municipalidad Metropolitana de Lima, Perú",
+        tipo_alojamiento: "Departamento entero",
+        nro_huespedes: 4,
+        descripcion: "Ubicado en el 1er piso de un antiguo edificio, ofrece todas las comodidades para que nuestros huéspedes disfruten de su estadía en Buenos Aires."
+    }
+    ]);
