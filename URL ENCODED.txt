@@ -1,5 +1,5 @@
-MongoDB Compass:
+MongoDB shell:
 	mongodb+srv://paolo:paolo@cluster0.wdhfl.mongodb.net/pc6
-MongoDB Shell:
+MongoDB Compass:
 	mongo "mongodb+srv://cluster0.wdhfl.mongodb.net/pc6" --username paolo
 	password: paolo
